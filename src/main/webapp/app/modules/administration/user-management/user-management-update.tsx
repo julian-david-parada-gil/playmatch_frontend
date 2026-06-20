@@ -36,6 +36,9 @@ export const UserManagementUpdate = () => {
 
   const saveUser = values => {
     if (isNew) {
+      if (values.id === '') {
+        delete values.id;
+      }
       dispatch(createUser(values));
     } else {
       dispatch(updateUser(values));
