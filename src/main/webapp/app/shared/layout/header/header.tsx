@@ -2,7 +2,6 @@ import './header.scss';
 
 import React, { useEffect, useRef } from 'react';
 import { Nav, Navbar } from 'react-bootstrap';
-
 import LoadingBar, { LoadingBarRef } from 'react-top-loading-bar';
 
 import { useAppSelector } from 'app/config/store';
@@ -30,18 +29,10 @@ const Header = (props: IHeaderProps) => {
     }
   }, [loadingCount]);
 
-  const renderDevRibbon = () =>
-    !props.isInProduction && (
-      <div className="ribbon dev">
-        <a href="">Development</a>
-      </div>
-    );
-
   /* jhipster-needle-add-element-to-menu - JHipster will add new menu items here */
 
   return (
     <div id="app-header">
-      {renderDevRibbon()}
       <LoadingBar ref={loadingBarRef} className="loading-bar" color="#009cd8" />
       <Navbar data-cy="navbar" data-bs-theme="dark" expand="md" fixed="top" className="bg-secondary" collapseOnSelect>
         <Navbar.Toggle aria-controls="header-tabs" aria-label="Menu" />
