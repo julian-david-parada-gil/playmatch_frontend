@@ -40,7 +40,7 @@ const Header = (props: IHeaderProps) => {
         <Navbar.Collapse id="header-tabs">
           <Nav className="ms-auto">
             <Home />
-            {props.isAuthenticated && <EntitiesMenu />}
+            {props.isAuthenticated && props.isAdmin && <EntitiesMenu />}
             {props.isAuthenticated && props.isAdmin && <AdminMenu showOpenAPI={props.isOpenAPIEnabled} />}
             <AccountMenu isAuthenticated={props.isAuthenticated} />
           </Nav>
