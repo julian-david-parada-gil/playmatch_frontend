@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Button, Col, FormText, Row } from 'react-bootstrap';
+import { Button, Col, Row } from 'react-bootstrap';
 import { ValidatedField, ValidatedForm, isEmail } from 'react-jhipster';
 import { Link, useNavigate, useParams } from 'react-router';
 
@@ -95,31 +95,6 @@ export const UserManagementUpdate = () => {
                   },
                 }}
               />
-              <ValidatedField
-                type="text"
-                name="firstName"
-                data-cy="firstName"
-                label="Nombre"
-                validate={{
-                  maxLength: {
-                    value: 50,
-                    message: 'Este campo no puede superar más de 50 caracteres.',
-                  },
-                }}
-              />
-              <ValidatedField
-                type="text"
-                name="lastName"
-                data-cy="lastName"
-                label="Apellidos"
-                validate={{
-                  maxLength: {
-                    value: 50,
-                    message: 'Este campo no puede superar más de 50 caracteres.',
-                  },
-                }}
-              />
-              <FormText>This field cannot be longer than 50 characters.</FormText>
               <ValidatedField
                 name="email"
                 data-cy="email"
