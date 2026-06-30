@@ -16,7 +16,7 @@ const ConvocatoriaRoutes = () => (
     <Route
       path="new"
       element={
-        <PrivateRoute hasAnyAuthorities={[Authority.ADMIN]}>
+        <PrivateRoute hasAnyAuthorities={[Authority.ADMIN,]}>
           <ConvocatoriaUpdate />
         </PrivateRoute>
       }
