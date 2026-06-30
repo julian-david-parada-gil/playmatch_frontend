@@ -7,15 +7,38 @@ import MensajeGrupo from './mensaje-grupo';
 import MensajeGrupoDeleteDialog from './mensaje-grupo-delete-dialog';
 import MensajeGrupoDetail from './mensaje-grupo-detail';
 import MensajeGrupoUpdate from './mensaje-grupo-update';
+import PrivateRoute from 'app/shared/auth/private-route';
+import { Authority } from 'app/shared/jhipster/constants';
 
 const MensajeGrupoRoutes = () => (
   <ErrorBoundaryRoutes>
     <Route index element={<MensajeGrupo />} />
-    <Route path="new" element={<MensajeGrupoUpdate />} />
+    <Route
+      path="new"
+      element={
+        <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.USER, Authority.ADMINGRUPO]}>
+          <MensajeGrupoUpdate />
+        </PrivateRoute>
+      }
+    />
     <Route path=":id">
       <Route index element={<MensajeGrupoDetail />} />
-      <Route path="edit" element={<MensajeGrupoUpdate />} />
-      <Route path="delete" element={<MensajeGrupoDeleteDialog />} />
+      <Route
+        path="edit"
+        element={
+          <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.USER, Authority.ADMINGRUPO]}>
+            <MensajeGrupoUpdate />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="delete"
+        element={
+          <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.USER, Authority.ADMINGRUPO]}>
+            <MensajeGrupoDeleteDialog />
+          </PrivateRoute>
+        }
+      />
     </Route>
   </ErrorBoundaryRoutes>
 );
