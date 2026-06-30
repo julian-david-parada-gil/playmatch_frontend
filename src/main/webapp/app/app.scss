@@ -84,6 +84,17 @@ Custom button styles
   }
 }
 
+/* Sobrescribir el botón de registro para que sea verde */
+.btn-primary {
+  background-color: #28a745 !important;
+  border-color: #28a745 !important;
+
+  &:hover {
+    background-color: #218838 !important;
+    border-color: #1e7e34 !important;
+  }
+}
+
 /* ==========================================================================
 Generic styles
 ========================================================================== */
