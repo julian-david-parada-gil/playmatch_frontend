@@ -5,13 +5,15 @@ import { Nav, Navbar } from 'react-bootstrap';
 import LoadingBar, { LoadingBarRef } from 'react-top-loading-bar';
 
 import { useAppSelector } from 'app/config/store';
-import { AccountMenu, AdminMenu, EntitiesMenu } from '../menus';
+import { AccountMenu, AdminMenu, EntitiesMenu, OrganizadorMenu, AdminGrupoMenu } from '../menus';
 
 import { Brand, Home } from './header-components';
 
 export interface IHeaderProps {
   isAuthenticated: boolean;
   isAdmin: boolean;
+  isOrganizador: boolean;
+  isAdminGrupo: boolean;
   ribbonEnv: string;
   isInProduction: boolean;
   isOpenAPIEnabled: boolean;
@@ -29,8 +31,6 @@ const Header = (props: IHeaderProps) => {
     }
   }, [loadingCount]);
 
-  /* jhipster-needle-add-element-to-menu - JHipster will add new menu items here */
-
   return (
     <div id="app-header">
       <LoadingBar ref={loadingBarRef} className="loading-bar" color="#009cd8" />
@@ -40,7 +40,9 @@ const Header = (props: IHeaderProps) => {
         <Navbar.Collapse id="header-tabs">
           <Nav className="ms-auto">
             <Home />
-            {props.isAuthenticated && <EntitiesMenu />}
+            {props.isAuthenticated && props.isAdmin && <EntitiesMenu />}
+            {props.isAuthenticated && props.isOrganizador && <OrganizadorMenu />}
+            {props.isAuthenticated && props.isAdminGrupo && <AdminGrupoMenu />}
             {props.isAuthenticated && props.isAdmin && <AdminMenu showOpenAPI={props.isOpenAPIEnabled} />}
             <AccountMenu isAuthenticated={props.isAuthenticated} />
           </Nav>
