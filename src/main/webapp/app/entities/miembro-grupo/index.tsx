@@ -7,15 +7,38 @@ import MiembroGrupo from './miembro-grupo';
 import MiembroGrupoDeleteDialog from './miembro-grupo-delete-dialog';
 import MiembroGrupoDetail from './miembro-grupo-detail';
 import MiembroGrupoUpdate from './miembro-grupo-update';
+import PrivateRoute from 'app/shared/auth/private-route';
+import { Authority } from 'app/shared/jhipster/constants';
 
 const MiembroGrupoRoutes = () => (
   <ErrorBoundaryRoutes>
     <Route index element={<MiembroGrupo />} />
-    <Route path="new" element={<MiembroGrupoUpdate />} />
+    <Route
+      path="new"
+      element={
+        <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.ADMINGRUPO]}>
+          <MiembroGrupoUpdate />
+        </PrivateRoute>
+      }
+    />
     <Route path=":id">
       <Route index element={<MiembroGrupoDetail />} />
-      <Route path="edit" element={<MiembroGrupoUpdate />} />
-      <Route path="delete" element={<MiembroGrupoDeleteDialog />} />
+      <Route
+        path="edit"
+        element={
+          <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.ADMINGRUPO]}>
+            <MiembroGrupoUpdate />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="delete"
+        element={
+          <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.ADMINGRUPO]}>
+            <MiembroGrupoDeleteDialog />
+          </PrivateRoute>
+        }
+      />
     </Route>
   </ErrorBoundaryRoutes>
 );
