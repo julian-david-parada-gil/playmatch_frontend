@@ -16,7 +16,7 @@ const CategoriaRoutes = () => (
     <Route
       path="new"
       element={
-        <PrivateRoute hasAnyAuthorities={[Authority.ADMIN]}>
+        <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.ORGANIZADOR]}>
           <CategoriaUpdate />
         </PrivateRoute>
       }
@@ -26,7 +26,7 @@ const CategoriaRoutes = () => (
       <Route
         path="edit"
         element={
-          <PrivateRoute hasAnyAuthorities={[Authority.ADMIN]}>
+          <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.ORGANIZADOR]}>
             <CategoriaUpdate />
           </PrivateRoute>
         }
@@ -34,7 +34,7 @@ const CategoriaRoutes = () => (
       <Route
         path="delete"
         element={
-          <PrivateRoute hasAnyAuthorities={[Authority.ADMIN]}>
+          <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.ORGANIZADOR]}>
             <CategoriaDeleteDialog />
           </PrivateRoute>
         }

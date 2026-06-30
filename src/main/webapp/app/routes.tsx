@@ -31,7 +31,7 @@ const AppRoutes = () => {
             <Route
               path="*"
               element={
-                <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.USER]}>
+                <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.USER, Authority.ORGANIZADOR, Authority.ADMINGRUPO]}>
                   <Account />
                 </PrivateRoute>
               }
