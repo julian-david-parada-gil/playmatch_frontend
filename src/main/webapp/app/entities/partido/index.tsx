@@ -26,7 +26,7 @@ const PartidoRoutes = () => (
       <Route
         path="edit"
         element={
-          <PrivateRoute hasAnyAuthorities={[Authority.ADMIN]}>
+          <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.ORGANIZADOR]}>
             <PartidoUpdate />
           </PrivateRoute>
         }
@@ -34,7 +34,7 @@ const PartidoRoutes = () => (
       <Route
         path="delete"
         element={
-          <PrivateRoute hasAnyAuthorities={[Authority.ADMIN]}>
+          <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.ORGANIZADOR]}>
             <PartidoDeleteDialog />
           </PrivateRoute>
         }

@@ -16,7 +16,7 @@ const TorneoRoutes = () => (
     <Route
       path="new"
       element={
-        <PrivateRoute hasAnyAuthorities={[Authority.ADMIN]}>
+        <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.ORGANIZADOR]}>
           <TorneoUpdate />
         </PrivateRoute>
       }
@@ -26,7 +26,7 @@ const TorneoRoutes = () => (
       <Route
         path="edit"
         element={
-          <PrivateRoute hasAnyAuthorities={[Authority.ADMIN]}>
+          <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.ORGANIZADOR]}>
             <TorneoUpdate />
           </PrivateRoute>
         }
@@ -34,7 +34,7 @@ const TorneoRoutes = () => (
       <Route
         path="delete"
         element={
-          <PrivateRoute hasAnyAuthorities={[Authority.ADMIN]}>
+          <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.ORGANIZADOR]}>
             <TorneoDeleteDialog />
           </PrivateRoute>
         }

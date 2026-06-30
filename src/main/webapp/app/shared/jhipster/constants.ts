@@ -7,4 +7,6 @@ export const AUTHENTICATION_TOKEN_KEY = 'project-authenticationToken';
 export enum Authority {
   ADMIN = 'ROLE_ADMIN',
   USER = 'ROLE_USER',
+  ORGANIZADOR = 'ROLE_ORGANIZADOR',
+  ADMINGRUPO = 'ROLE_ADMINGRUPO',
 }
