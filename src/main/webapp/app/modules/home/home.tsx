@@ -12,7 +12,7 @@ export const Home = () => {
   return (
     <Row>
       <Col md="9">
-        <p className="lead">Esta es su página de inicio</p>
+        <p className="lead">Bienvenido a PlayMatch</p>
         {account?.login ? (
           <div>
             <Alert variant="success">Está conectado como &quot;{account.login}&quot;.</Alert>
