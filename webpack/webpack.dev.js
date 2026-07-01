@@ -46,21 +46,28 @@ module.exports = async options =>
       ],
     },
     devServer: {
-      hot: true,
-      static: {
-        directory: './target/classes/static/',
-      },
-      port: 9060,
-      proxy: [
-        {
-          context: ['/api', '/services', '/management', '/v3/api-docs', '/h2-console'],
-          target: `http${options.tls ? 's' : ''}://localhost:8080`,
-          secure: false,
-          changeOrigin: options.tls,
+          host: '0.0.0.0',
+          port: 9060,
+          allowedHosts: 'all',
+          client: {
+            webSocketURL: 'auto://0.0.0.0/ws',
+          },
+          hot: true,
+          static: {
+            directory: './target/classes/static/',
+          },
+          port: 9060,
+          proxy: [
+            {
+              context: ['/api', '/services', '/management', '/v3/api-docs', '/h2-console'],
+              target: `http${options.tls ? 's' : ''}://localhost:8080`,
+              secure: false,
+              changeOrigin: options.tls,
+              changeOrigin: true,
+            },
+          ],
+          historyApiFallback: true,
         },
-      ],
-      historyApiFallback: true,
-    },
     stats: process.env.JHI_DISABLE_WEBPACK_LOGS ? 'none' : options.stats,
     plugins: [
       process.env.JHI_DISABLE_WEBPACK_LOGS
