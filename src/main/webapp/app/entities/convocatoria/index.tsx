@@ -16,7 +16,7 @@ const ConvocatoriaRoutes = () => (
     <Route
       path="new"
       element={
-        <PrivateRoute hasAnyAuthorities={[Authority.ADMIN,]}>
+        <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.ORGANIZADOR]}>
           <ConvocatoriaUpdate />
         </PrivateRoute>
       }
@@ -26,7 +26,7 @@ const ConvocatoriaRoutes = () => (
       <Route
         path="edit"
         element={
-          <PrivateRoute hasAnyAuthorities={[Authority.ADMIN]}>
+          <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.ORGANIZADOR]}>
             <ConvocatoriaUpdate />
           </PrivateRoute>
         }
@@ -34,7 +34,7 @@ const ConvocatoriaRoutes = () => (
       <Route
         path="delete"
         element={
-          <PrivateRoute hasAnyAuthorities={[Authority.ADMIN]}>
+          <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.ORGANIZADOR]}>
             <ConvocatoriaDeleteDialog />
           </PrivateRoute>
         }
