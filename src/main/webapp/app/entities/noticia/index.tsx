@@ -16,7 +16,7 @@ const NoticiaRoutes = () => (
     <Route
       path="new"
       element={
-        <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, AuthorityORGANIZADOR, AuthorityADMINGRUPO]}>
+        <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.ORGANIZADOR, Authority.ADMINGRUPO]}>
           <NoticiaUpdate />
         </PrivateRoute>
       }
@@ -26,7 +26,7 @@ const NoticiaRoutes = () => (
       <Route
         path="edit"
         element={
-          <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, AuthorityORGANIZADOR, AuthorityADMINGRUPO]}>
+          <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.ORGANIZADOR, Authority.ADMINGRUPO]}>
             <NoticiaUpdate />
           </PrivateRoute>
         }
@@ -34,7 +34,7 @@ const NoticiaRoutes = () => (
       <Route
         path="delete"
         element={
-          <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, AuthorityORGANIZADOR, AuthorityADMINGRUPO]}>
+          <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.ORGANIZADOR, Authority.ADMINGRUPO]}>
             <NoticiaDeleteDialog />
           </PrivateRoute>
         }

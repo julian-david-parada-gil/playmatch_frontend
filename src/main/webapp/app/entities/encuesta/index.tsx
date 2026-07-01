@@ -16,7 +16,7 @@ const EncuestaRoutes = () => (
     <Route
       path="new"
       element={
-        <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, AuthorityORGANIZADOR, AuthorityADMINGRUPO]}>
+        <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.ORGANIZADOR, Authority.ADMINGRUPO]}>
           <EncuestaUpdate />
         </PrivateRoute>
       }
@@ -26,7 +26,7 @@ const EncuestaRoutes = () => (
       <Route
         path="edit"
         element={
-          <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, AuthorityORGANIZADOR, AuthorityADMINGRUPO]}>
+          <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.ORGANIZADOR, Authority.ADMINGRUPO]}>
             <EncuestaUpdate />
           </PrivateRoute>
         }
@@ -34,7 +34,7 @@ const EncuestaRoutes = () => (
       <Route
         path="delete"
         element={
-          <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, AuthorityORGANIZADOR, AuthorityADMINGRUPO]}>
+          <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.ORGANIZADOR, Authority.ADMINGRUPO]}>
             <EncuestaDeleteDialog />
           </PrivateRoute>
         }
