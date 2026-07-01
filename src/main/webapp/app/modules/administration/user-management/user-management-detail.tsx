@@ -34,10 +34,6 @@ export const UserManagementDetail = () => {
             <span>{user.login}</span>&nbsp;
             {user.activated ? <Badge bg="success">Activado</Badge> : <Badge bg="danger">Desactivado</Badge>}
           </dd>
-          <dt>Nombre</dt>
-          <dd>{user.firstName}</dd>
-          <dt>Apellidos</dt>
-          <dd>{user.lastName}</dd>
           <dt>Email</dt>
           <dd>{user.email}</dd>
           <dt>Creado por</dt>
