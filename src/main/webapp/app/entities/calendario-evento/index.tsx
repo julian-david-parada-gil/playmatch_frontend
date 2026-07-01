@@ -16,7 +16,7 @@ const CalendarioEventoRoutes = () => (
     <Route
       path="new"
       element={
-        <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.ORGANIZADOR, Authority.ADMINGRUPO]}>
+        <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.ORGANIZADOR]}>
           <CalendarioEventoUpdate />
         </PrivateRoute>
       }
@@ -26,7 +26,7 @@ const CalendarioEventoRoutes = () => (
       <Route
         path="edit"
         element={
-          <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.ORGANIZADOR, Authority.ADMINGRUPO]}>
+          <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.ORGANIZADOR]}>
             <CalendarioEventoUpdate />
           </PrivateRoute>
         }
@@ -34,7 +34,7 @@ const CalendarioEventoRoutes = () => (
       <Route
         path="delete"
         element={
-          <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.ORGANIZADOR, Authority.ADMINGRUPO]}>
+          <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.ORGANIZADOR]}>
             <CalendarioEventoDeleteDialog />
           </PrivateRoute>
         }

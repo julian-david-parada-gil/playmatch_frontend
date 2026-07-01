@@ -16,7 +16,7 @@ const PartidoRoutes = () => (
     <Route
       path="new"
       element={
-        <PrivateRoute hasAnyAuthorities={[Authority.ADMIN]}>
+        <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.ORGANIZADOR]}>
           <PartidoUpdate />
         </PrivateRoute>
       }
