@@ -25,6 +25,7 @@ a {
 
 .app-container {
   box-sizing: border-box;
+  background-color: transparent;
   .view-container {
     width: 100%;
     height: calc(100% - 40px);
@@ -33,6 +34,9 @@ a {
     padding: 1rem;
     .card {
       padding: 1rem;
+      min-height: 80vh;
+      background-color: transparent;
+      border: none;
     }
     .view-routes {
       height: 100%;
@@ -40,6 +44,17 @@ a {
         height: 100%;
       }
     }
+  }
+  .view-container::-webkit-scrollbar{
+    background-color: transparent;
+    width: 6px;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  .view-container::-webkit-scrollbar-thumb{
+    background-color: #16a34a;
+    width: 3px;
+    border-radius: 5px;
   }
 }
 
@@ -86,12 +101,12 @@ Custom button styles
 
 /* Sobrescribir el botón de registro para que sea verde */
 .btn-primary {
-  background-color: #28a745 !important;
-  border-color: #28a745 !important;
+  background-color: #16a34a !important;
+  border-color: #16a34a !important;
 
   &:hover {
-    background-color: #218838 !important;
-    border-color: #1e7e34 !important;
+    background-color: #064c20 !important;
+    border-color: #064c20 !important;
   }
 }
 
@@ -325,3 +340,34 @@ http://stackoverflow.com/questions/23436430/bootstrap-3-input-group-100-width */
 }
 
 /* jhipster-needle-scss-add-main JHipster will add new css style */
+
+/* ==========================================================================
+Landing / Login background (grid + green glow)
+========================================================================== */
+.landing-bg, body.landing-bg {
+  background-color: #7e887e;
+  background-image: 
+    radial-gradient(circle at 15% 20%, rgba(34,83,40,0.45) 0%, rgba(34,83,40,0) 30%),
+    radial-gradient(circle at 80% 75%, rgba(34,163,74,0.12) 0%, rgba(34,163,74,0) 35%),
+    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+    repeating-linear-gradient(0deg, rgba(20,30,20,0.06), rgba(20,30,20,0.06) 1px, transparent 1px, transparent 40px),
+    repeating-linear-gradient(90deg, rgba(20,30,20,0.06), rgba(20,30,20,0.06) 1px, transparent 1px, transparent 40px);
+  background-size: cover;
+  background-attachment: fixed;
+  background-blend-mode: overlay;
+  min-height: 100vh;
+}
+
+/* Make modal backdrop transparent so background shows through */
+.modal-backdrop {
+  background-color: transparent !important;
+}
+
+/* Slight vignette to match the mock */
+.landing-bg::before, body.landing-bg::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, rgba(30, 190, 5, 0) 35%, rgba(0, 0, 0, 0) 100%);
+}
