@@ -26,7 +26,7 @@ const CuentaRoutes = () => (
       <Route
         path="edit"
         element={
-          <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.ORGANIZADOR, Authority.ADMINGRUPO, Authority.PARTICIPANTE]}>
+          <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.ORGANIZADOR, Authority.ADMINGRUPO, Authority.USER]}>
             <CuentaUpdate />
           </PrivateRoute>
         }

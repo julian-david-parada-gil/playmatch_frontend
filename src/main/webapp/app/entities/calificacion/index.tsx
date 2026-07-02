@@ -16,7 +16,7 @@ const CalificacionRoutes = () => (
     <Route
       path="new"
       element={
-        <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.PARTICIPANTE]}>
+        <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.USER]}>
           <CalificacionUpdate />
         </PrivateRoute>
       }
@@ -26,7 +26,7 @@ const CalificacionRoutes = () => (
       <Route
         path="edit"
         element={
-          <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.PARTICIPANTE]}>
+          <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.USER]}>
             <CalificacionUpdate />
           </PrivateRoute>
         }
@@ -34,7 +34,7 @@ const CalificacionRoutes = () => (
       <Route
         path="delete"
         element={
-          <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.PARTICIPANTE]}>
+          <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.USER]}>
             <CalificacionDeleteDialog />
           </PrivateRoute>
         }

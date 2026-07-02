@@ -16,7 +16,7 @@ const InscripcionRoutes = () => (
     <Route
       path="new"
       element={
-        <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.ORGANIZADOR, Authority.PARTICIPANTE]}>
+        <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.ORGANIZADOR, Authority.USER]}>
           <InscripcionUpdate />
         </PrivateRoute>
       }

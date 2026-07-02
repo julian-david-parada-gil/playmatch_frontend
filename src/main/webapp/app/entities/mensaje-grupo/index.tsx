@@ -16,7 +16,7 @@ const MensajeGrupoRoutes = () => (
     <Route
       path="new"
       element={
-        <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.PARTICIPANTE, Authority.ADMINGRUPO]}>
+        <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.USER, Authority.ADMINGRUPO]}>
           <MensajeGrupoUpdate />
         </PrivateRoute>
       }
@@ -26,7 +26,7 @@ const MensajeGrupoRoutes = () => (
       <Route
         path="edit"
         element={
-          <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.PARTICIPANTE, Authority.ADMINGRUPO]}>
+          <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.USER, Authority.ADMINGRUPO]}>
             <MensajeGrupoUpdate />
           </PrivateRoute>
         }
@@ -34,7 +34,7 @@ const MensajeGrupoRoutes = () => (
       <Route
         path="delete"
         element={
-          <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.PARTICIPANTE, Authority.ADMINGRUPO]}>
+          <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.USER, Authority.ADMINGRUPO]}>
             <MensajeGrupoDeleteDialog />
           </PrivateRoute>
         }
