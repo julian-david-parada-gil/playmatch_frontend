@@ -45,30 +45,6 @@ export const SettingsPage = () => {
           </h2>
           <ValidatedForm id="settings-form" onSubmit={handleValidSubmit} defaultValues={account}>
             <ValidatedField
-              name="firstName"
-              label="Nombre"
-              id="firstName"
-              placeholder="Su nombre"
-              validate={{
-                required: { value: true, message: 'Se requiere que ingrese su nombre.' },
-                minLength: { value: 1, message: 'Se requiere que su nombre tenga por lo menos 1 caracter' },
-                maxLength: { value: 50, message: 'Su nombre no puede tener más de 50 caracteres' },
-              }}
-              data-cy="firstname"
-            />
-            <ValidatedField
-              name="lastName"
-              label="Apellidos"
-              id="lastName"
-              placeholder="Sus apellidos"
-              validate={{
-                required: { value: true, message: 'Se requiere que ingrese sus apellidos.' },
-                minLength: { value: 1, message: 'Se requiere que sus apellidos tengan por lo menos 1 caracter' },
-                maxLength: { value: 50, message: 'Sus apellidos no pueden tener más de 50 caracteres' },
-              }}
-              data-cy="lastname"
-            />
-            <ValidatedField
               name="email"
               label="Correo electrónico"
               placeholder="Su correo electrónico"

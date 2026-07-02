@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Button, Col, FormText, Row } from 'react-bootstrap';
+import { Button, Col, Row } from 'react-bootstrap';
 import { ValidatedField, ValidatedForm, isEmail } from 'react-jhipster';
 import { Link, useNavigate, useParams } from 'react-router';
 
@@ -63,7 +63,13 @@ export const UserManagementUpdate = () => {
           {loading ? (
             <p>Loading...</p>
           ) : (
-            <ValidatedForm onSubmit={saveUser} defaultValues={user}>
+            <ValidatedForm
+              onSubmit={saveUser}
+              defaultValues={{
+                ...user,
+                langKey: user?.langKey || 'es',
+              }}
+            >
               {user.id && <ValidatedField type="text" name="id" data-cy="id" required readOnly label="ID" validate={{ required: true }} />}
               <ValidatedField
                 type="text"
@@ -89,31 +95,6 @@ export const UserManagementUpdate = () => {
                   },
                 }}
               />
-              <ValidatedField
-                type="text"
-                name="firstName"
-                data-cy="firstName"
-                label="Nombre"
-                validate={{
-                  maxLength: {
-                    value: 50,
-                    message: 'Este campo no puede superar más de 50 caracteres.',
-                  },
-                }}
-              />
-              <ValidatedField
-                type="text"
-                name="lastName"
-                data-cy="lastName"
-                label="Apellidos"
-                validate={{
-                  maxLength: {
-                    value: 50,
-                    message: 'Este campo no puede superar más de 50 caracteres.',
-                  },
-                }}
-              />
-              <FormText>This field cannot be longer than 50 characters.</FormText>
               <ValidatedField
                 name="email"
                 data-cy="email"
@@ -151,6 +132,10 @@ export const UserManagementUpdate = () => {
                     {role}
                   </option>
                 ))}
+              </ValidatedField>
+              <ValidatedField type="select" name="langKey" data-cy="langKey" label="Idioma">
+                <option value="es">Español</option>
+                <option value="en">English</option>
               </ValidatedField>
               <Button as={Link as any} to="/admin/user-management" replace variant="info" data-cy="entityCreateCancelButton">
                 <FontAwesomeIcon icon={faArrowLeft} />

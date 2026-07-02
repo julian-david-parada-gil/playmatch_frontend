@@ -11,12 +11,25 @@ export const Home = () => {
 
   return (
     <Row>
-      <Col md="3" className="pad">
-        <span className="hipster rounded" />
+      {/* Columna izquierda: Logo */}
+      <Col md="4" className="d-flex align-items-center justify-content-center">
+        <img src="content/images/playmatch.png" alt="Logo PlayMatch" style={{ maxWidth: '100%', height: 'auto' }} />
       </Col>
-      <Col md="9">
-        <h1 className="display-4">¡Bienvenido, Java Hipster!</h1>
-        <p className="lead">Esta es su página de inicio</p>
+
+      {/* Columna derecha: Título y texto */}
+      <Col md="8">
+        <h2>Bienvenido a PlayMatch</h2>
+
+        <Alert variant="warning">
+          <h4 className="alert-heading">Sobre PlayMatch</h4>
+          <p>Somos una plataforma diseñada para la gestión integral de torneos deportivos en Colombia.</p>
+          <hr />
+          <p className="mb-0">
+            <strong>Objetivo principal:</strong> Facilitamos la organización de partidos en disciplinas como fútbol en modalidades 8x8,
+            11x11, microfutbol o fubol de salon 5x5, baloncesto 5x5, entre otras disciplinas.
+          </p>
+        </Alert>
+
         {account?.login ? (
           <div>
             <Alert variant="success">Está conectado como &quot;{account.login}&quot;.</Alert>
@@ -30,8 +43,10 @@ export const Home = () => {
                 iniciar sesión
               </Link>
               , puede intentar con las cuentas predeterminadas:
-              <br />- Administrador (usuario=&quot;admin&quot; y contraseña=&quot;admin&quot;) <br />- Usuario (usuario=&quot;user&quot; y
-              contraseña=&quot;user&quot;).
+              <br />- Administrador (usuario=&quot;admin&quot; y contraseña=&quot;admin&quot;)
+              <br />- Usuario (usuario=&quot;user&quot; y contraseña=&quot;user&quot;).
+              <br />- AdminGrupo (usuario=&quot;admingrupo&quot; y contraseña=&quot;admingrupo&quot;)
+              <br />- Organizador (usuario=&quot;organizador&quot; y contraseña=&quot;organizador&quot;)
             </Alert>
 
             <Alert variant="warning">
@@ -42,43 +57,6 @@ export const Home = () => {
             </Alert>
           </div>
         )}
-        <p>Si tiene preguntas sobre JHipster:</p>
-
-        <ul>
-          <li>
-            <a href="https://www.jhipster.tech/" target="_blank" rel="noopener noreferrer">
-              Página de inicio de JHipster
-            </a>
-          </li>
-          <li>
-            <a href="https://stackoverflow.com/tags/jhipster/info" target="_blank" rel="noopener noreferrer">
-              JHipster en Stack Overflow
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/jhipster/generator-jhipster/issues?state=open" target="_blank" rel="noopener noreferrer">
-              JHipster seguimiento de errores
-            </a>
-          </li>
-          <li>
-            <a href="https://gitter.im/jhipster/generator-jhipster" target="_blank" rel="noopener noreferrer">
-              Sala de chat pública de JHipster
-            </a>
-          </li>
-          <li>
-            <a href="https://twitter.com/jhipster" target="_blank" rel="noopener noreferrer">
-              contacto @jhipster en Twitter
-            </a>
-          </li>
-        </ul>
-
-        <p>
-          Si te gusta JHipster, danos una estrella en{' '}
-          <a href="https://github.com/jhipster/generator-jhipster" target="_blank" rel="noopener noreferrer">
-            GitHub
-          </a>
-          !
-        </p>
       </Col>
     </Row>
   );
