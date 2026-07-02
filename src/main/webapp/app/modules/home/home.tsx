@@ -46,6 +46,7 @@ export const Home = () => {
               <br />- Administrador (usuario=&quot;admin&quot; y contraseña=&quot;admin&quot;)
               <br />- Usuario (usuario=&quot;user&quot; y contraseña=&quot;user&quot;).
               <br />- AdminGrupo (usuario=&quot;admingrupo&quot; y contraseña=&quot;admingrupo&quot;)
+              <br />- Organizador (usuario=&quot;organizador&quot; y contraseña=&quot;organizador&quot;)
             </Alert>
 
             <Alert variant="warning">
