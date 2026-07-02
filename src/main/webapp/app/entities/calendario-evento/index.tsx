@@ -7,15 +7,38 @@ import CalendarioEvento from './calendario-evento';
 import CalendarioEventoDeleteDialog from './calendario-evento-delete-dialog';
 import CalendarioEventoDetail from './calendario-evento-detail';
 import CalendarioEventoUpdate from './calendario-evento-update';
+import PrivateRoute from 'app/shared/auth/private-route';
+import { Authority } from 'app/shared/jhipster/constants';
 
 const CalendarioEventoRoutes = () => (
   <ErrorBoundaryRoutes>
     <Route index element={<CalendarioEvento />} />
-    <Route path="new" element={<CalendarioEventoUpdate />} />
+    <Route
+      path="new"
+      element={
+        <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.ORGANIZADOR]}>
+          <CalendarioEventoUpdate />
+        </PrivateRoute>
+      }
+    />
     <Route path=":id">
       <Route index element={<CalendarioEventoDetail />} />
-      <Route path="edit" element={<CalendarioEventoUpdate />} />
-      <Route path="delete" element={<CalendarioEventoDeleteDialog />} />
+      <Route
+        path="edit"
+        element={
+          <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.ORGANIZADOR]}>
+            <CalendarioEventoUpdate />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="delete"
+        element={
+          <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.ORGANIZADOR]}>
+            <CalendarioEventoDeleteDialog />
+          </PrivateRoute>
+        }
+      />
     </Route>
   </ErrorBoundaryRoutes>
 );

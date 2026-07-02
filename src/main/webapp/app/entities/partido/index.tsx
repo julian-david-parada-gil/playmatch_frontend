@@ -7,15 +7,38 @@ import Partido from './partido';
 import PartidoDeleteDialog from './partido-delete-dialog';
 import PartidoDetail from './partido-detail';
 import PartidoUpdate from './partido-update';
+import PrivateRoute from 'app/shared/auth/private-route';
+import { Authority } from 'app/shared/jhipster/constants';
 
 const PartidoRoutes = () => (
   <ErrorBoundaryRoutes>
     <Route index element={<Partido />} />
-    <Route path="new" element={<PartidoUpdate />} />
+    <Route
+      path="new"
+      element={
+        <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.ORGANIZADOR]}>
+          <PartidoUpdate />
+        </PrivateRoute>
+      }
+    />
     <Route path=":id">
       <Route index element={<PartidoDetail />} />
-      <Route path="edit" element={<PartidoUpdate />} />
-      <Route path="delete" element={<PartidoDeleteDialog />} />
+      <Route
+        path="edit"
+        element={
+          <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.ORGANIZADOR]}>
+            <PartidoUpdate />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="delete"
+        element={
+          <PrivateRoute hasAnyAuthorities={[Authority.ADMIN, Authority.ORGANIZADOR]}>
+            <PartidoDeleteDialog />
+          </PrivateRoute>
+        }
+      />
     </Route>
   </ErrorBoundaryRoutes>
 );
