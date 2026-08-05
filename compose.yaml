@@ -1,0 +1,29 @@
+name: playmatch
+
+services:
+  react:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: playmatch-frontend:dev
+    container_name: playmatch-frontend
+    restart: unless-stopped
+    ports:
+      - "9060:9060"
+    environment:
+      - PLAYMATCH_USERFRONTEND=true
+    volumes:
+      - frontend-v1:/src
+      - frontend-v2:/node_modules
+    command: ["npm", "start"]
+    stdin_open: true
+    tty: true
+    networks:
+      - frontend-network
+
+networks:
+  frontend-network:
+
+volumes:
+  frontend-v1:
+  frontend-v2:
